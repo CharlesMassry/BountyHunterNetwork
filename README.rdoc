@@ -1,3 +1,4 @@
 == BountyHunterNetwork
-Ruby version - ruby 1.9.3p194 (2012-04-20 revision 35410) [i686-linux] <br>
+Ruby version - ruby 1.9.3p194 (2012-04-20 revision 35410) [i686-linux]
+
 Rails version - 3.2.6
