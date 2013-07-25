@@ -9,7 +9,7 @@
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="#">BountyHunterNetwork</a>
+    <a class="brand" href="#">&nbsp BountyHunterNetwork</a>
     <ul class="nav">
       <li><%= link_to "Bounty Updates", statuses_path %></li>
     </ul>
@@ -20,6 +20,8 @@
     <div class="span2">
     </div>
     <div class="span8">
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </div>
