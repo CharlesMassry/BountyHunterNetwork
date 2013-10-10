@@ -1,7 +1,9 @@
 // Place all the styles related to the statuses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+body{
+	font: 14px Helvetica, Arial, sans-serif;
+};
 .status {
 	border-bottom: solid 1px #CCC;
 	padding: 5px 0;
@@ -18,3 +20,22 @@
 .status.hover .admin {
 	display: inline;
 }
+a{
+	text-decoration: none;
+	color: #da4f49
+};
+a:hover{
+	color: #bd362f
+};
+.navbar .brand{
+	color: #da4f49
+};
+.navbar .brand:hover{
+	color: #bd362f;
+};
+.navbar .nav > li > a{
+	color: #da4f49
+};
+.navbar .nav > li > a:hover{
+	color: #bd362f;
+};

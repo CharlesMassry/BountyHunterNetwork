@@ -14,21 +14,21 @@
     <div class="row-fluid">
       <div class="span2"></div>
       <div class="span8">
-    <a class="brand" href="#">BountyHunterNetwork</a>
-    <ul class="nav">
-      <li><%= link_to "Bounty Updates", bounty_updates_path %></li>
-    </ul>
-    <ul class="nav pull-right">
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-	   <li><%= link_to "Log Out", logout_path %></li>
-	 <% else %> 
-	   <li><%= link_to "Register", register_path %></li>
-	   <li><%= link_to "Log in", login_path %></li>
-	 <% end %>
-    </ul>
-  </div>
-</div>
+        <div><%= link_to "BountyHunterNetwork", root_path, class: 'brand' %></div>
+        <ul class="nav">
+         <li><%= link_to "Bounty Updates", bounty_updates_path %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+    	      <li><%= link_to "Log Out", logout_path %></li>
+    	    <% else %> 
+    	      <li><%= link_to "Register", register_path %></li>
+    	      <li><%= link_to "Log in", login_path %></li>
+    	    <% end %>
+        </ul>
+      </div>
+    </div>
 </div>
   </div>
 </div>
@@ -43,8 +43,12 @@
           <%= message %>
         </div>
       <% end %>
-      
       <%= yield %>
+      <br>
+      <footer class="footer">
+        <br>
+          <p><a href="http://www.massindustries.org">&copy Mass Industries</a></p>
+      </footer>
     </div>
   </div>
 </div>

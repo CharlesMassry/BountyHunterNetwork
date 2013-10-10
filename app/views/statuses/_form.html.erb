@@ -14,6 +14,6 @@
     <%= f.input :user_id, collection: User.all, label_method: :full_name %>
     <%= f.input :content %>
   <div class="form-actions">
-      <%= f.button :submit, :class => 'btn-danger' %>
+      <%= f.button :submit, "New Status", :class => 'btn-danger' %>
   </div>
 <% end %>

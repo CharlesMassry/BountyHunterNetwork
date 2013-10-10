@@ -1,15 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @status.user.full_name %>
-</p>
+<h1><%= @status.user.full_name %></h1>
 
-<p>
-  <b>Content:</b>
+<div class="well">
   <%= @status.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+  <hr>
+  <%= link_to 'Edit', edit_status_path(@status) %> |
+  <%= link_to 'Back', statuses_path %>
+</div>
