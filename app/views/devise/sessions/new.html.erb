@@ -1,23 +1,24 @@
-<div class="row-fluid">
-<div class="span4">
+<div class="row">
+<div class="col-md-6">
 
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "well"}) do |f| %>
   <fieldset>
-	<legend>Sign In</legend>  
-	  <%= f.input :email %>
-	  <%= f.input :password %>
+	<legend>Sign In</legend>
+	<div class="form-horizontal">  
+	  <%= f.input :email, :input_html => {:size => 30} %>
+	  <%= f.input :password, :input_html => {:size => 30} %>
 	
 	  <% if devise_mapping.rememberable? -%>
-	    <div><%= f.input :remember_me, as: :boolean %></div>
-	  <% end -%>
-	
+	    <div><%= f.input :remember_me, as: :boolean, class: "inline" %></div>
+	  <% end %>
+	</div>
 	  <div><%= f.button :submit, "Sign in", :class => 'btn-danger'  %></div>
   </fieldset>
 <% end %>
 
 <%= render "devise/shared/links" %>
 </div>
-<div class="span8">
+<div class="col-md-4">
   <h3>Signing in is easy and secure</h3>
 </div>
 </div>

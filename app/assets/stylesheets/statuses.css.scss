@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
 	font: 14px Helvetica, Arial, sans-serif;
+	padding-top: 60px;
 };
 .status {
 	border-bottom: solid 1px #CCC;
@@ -21,16 +22,15 @@ body{
 	display: inline;
 }
 a{
-	text-decoration: none;
 	color: #da4f49
 };
 a:hover{
 	color: #bd362f
 };
-.navbar .brand{
+.navbar .navbar-brand{
 	color: #da4f49
 };
-.navbar .brand:hover{
+.navbar .navbar-brand:hover{
 	color: #bd362f;
 };
 .navbar .nav > li > a{
@@ -38,4 +38,7 @@ a:hover{
 };
 .navbar .nav > li > a:hover{
 	color: #bd362f;
+};
+.status-text {
+	padding-left: 1em
 };
