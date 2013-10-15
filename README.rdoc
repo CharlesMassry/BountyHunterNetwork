@@ -2,6 +2,6 @@
 
 A social network for bounty hunters to help find and catch criminals and fugitives.
 
-Ruby version - ruby 1.9.3p194 (2012-04-20 revision 35410) [i686-linux]
+Ruby version - ruby 2.0.0p247 (2013-06-27 revision 41674) [i686-linux]
 
 Rails version - 3.2.6
