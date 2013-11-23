@@ -9,9 +9,10 @@
 	  <%= f.input :password, :input_html => {:size => 30} %>
 	
 	  <% if devise_mapping.rememberable? -%>
-	    <div><%= f.input :remember_me, as: :boolean, class: "inline" %></div>
+	    <div><%= f.input :remember_me, as: :boolean %></div>
 	  <% end %>
 	</div>
+	<br>
 	  <div><%= f.button :submit, "Sign in", :class => 'btn-danger'  %></div>
   </fieldset>
 <% end %>

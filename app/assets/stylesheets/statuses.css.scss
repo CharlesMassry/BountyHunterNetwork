@@ -4,7 +4,7 @@
 body{
 	font: 14px Helvetica, Arial, sans-serif;
 	padding-top: 60px;
-};
+}
 .status {
 	border-bottom: solid 1px #CCC;
 	padding: 5px 0;
@@ -42,3 +42,9 @@ a:hover{
 .status-text {
 	padding-left: 1em
 };
+.btn-danger {
+  box-shadow: 0 0 18px #da4f49
+}
+.btn-danger:focus, .btn-danger:active {
+  box-shadow: 0 0 9px #bd362f
+ } 
