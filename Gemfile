@@ -8,6 +8,10 @@ gem 'rails', '3.2.6'
 gem 'devise', '3.0.3'
 gem 'simple_form'
 
+group :test do
+	gem 'shoulda'
+end
+
 group :development, :test do
 	gem 'sqlite3'
 	gem 'better_errors'
