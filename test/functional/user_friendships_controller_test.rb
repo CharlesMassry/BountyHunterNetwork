@@ -127,6 +127,14 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 			end
 
+			context "successfully" do
+				should "create two user friendship objects" do
+					assert_difference 'UserFriendship.count', 2 do
+						post :create, user_friendship: { friend_id: users(:charles).profile_name }
+					end
+				end
+			end
+
 			context "with a valid friend_id" do
 				setup do
 					post :create, user_friendship: {friend_id: users(:charles)}
@@ -154,8 +162,68 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				
 				should "set the flash success message" do
 					assert flash[:success]
-					assert_equal "You are now friends with #{users(:charles).full_name}", flash[:success]
+					assert_equal "Friend request sent.", flash[:success]
 				end
+			end
+		end
+	end
+	context "#accept" do
+		context "when not logged in" do
+			should "redirect to the login page" do
+				put :accept, id: 1
+				assert_response :redirect
+				assert_redirected_to login_path
+			end
+		end
+
+		context "when logged in" do
+			setup do
+				@user_friendship = create(:pending_user_friendship, user: users(:charlie))
+				sign_in users(:charlie)
+				put :accept, id: @user_friendship
+				@user_friendship.reload
+			end
+
+			should "assign a user friendship" do
+				assert assigns(:user_friendship)
+				assert_equal @user_friendship, assigns(:user_friendship)
+			end
+
+			should "update the state to accepted" do
+				assert_equal 'accepted', @user_friendship.state
+			end
+
+			should "have a flash success message" do
+				assert_equal "You are now friends with #{@user_friendship.friend.full_name}", flash[:success]
+			end
+		end
+end
+	context "#edit" do
+		context "when not logged in" do
+			should "redirect to the login page" do
+				get :edit, id: 1
+				assert_response :redirect
+			end
+		end
+
+		context "when logged in" do
+			setup do
+				@user_friendship = create(:pending_user_friendship, user: users(:charlie))
+				sign_in users(:charlie)
+				get :edit, id: @user_friendship
+			end
+
+			should "get edit and return success" do
+				
+				assert_response :success
+			end
+
+			should "assign to user friendship" do
+				assert assigns(:user_friendship)
+			end
+
+			should "assign to friend" do
+				assert assigns(:friend)
 			end
 		end
 	end
