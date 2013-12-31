@@ -41,7 +41,6 @@ class UserFriendshipTest < ActiveSupport::TestCase
 			UserFriendship.request users(:charlie), users(:charles)
 			@friendship1 = users(:charlie).user_friendships.where(friend_id: users(:charles).id).first
 			@friendship2 = users(:charles).user_friendships.where(friend_id: users(:charlie).id).first
-			
 		end
 
 		should "correctly find the mutual friendship" do
@@ -103,6 +102,33 @@ class UserFriendshipTest < ActiveSupport::TestCase
 			assert_difference 'ActionMailer::Base.deliveries.size', 1 do
 				UserFriendship.request(users(:charlie), users(:charles))
 			end
+		end
+	end
+
+	context "#delete_mutual_friendship!" do
+		setup do
+			UserFriendship.request users(:charlie), users(:charles)
+			@friendship1 = users(:charlie).user_friendships.where(friend_id: users(:charles).id).first
+			@friendship2 = users(:charles).user_friendships.where(friend_id: users(:charlie).id).first
+		end
+
+		should "delete the mutual friendship" do
+			assert_equal @friendship2, @friendship1.mutual_friendship
+			@friendship1.delete_mutual_friendship!
+			assert !UserFriendship.exists?(@friendship2.id)
+		end
+	end
+
+	context "on destroy" do
+		setup do
+			UserFriendship.request users(:charlie), users(:charles)
+			@friendship1 = users(:charlie).user_friendships.where(friend_id: users(:charles).id).first
+			@friendship2 = users(:charles).user_friendships.where(friend_id: users(:charlie).id).first
+		end
+
+		should "delete the mutual friendship" do
+			@friendship1.destroy
+			assert !UserFriendship.exists?(@friendship2.id)
 		end
 	end
 end

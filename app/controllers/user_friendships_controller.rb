@@ -44,7 +44,17 @@ class UserFriendshipsController < ApplicationController
 	end
 
 	def edit
-		@user_friendship = current_user.user_friendships.find(params[:id])
+		@user_friendship = current_user.user_friendships.find(params[:id]).decorate
 		@friend = @user_friendship.friend
+	end
+
+	def destroy
+		@user_friendship = current_user.user_friendships.find(params[:id])
+		if @user_friendship.destroy
+			flash[:success] = "Friendship destroyed"
+		#else
+
+		end
+		redirect_to user_friendships_path
 	end
 end
