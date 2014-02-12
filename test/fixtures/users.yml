@@ -10,3 +10,9 @@ charles:
   last_name: "Massry"
   email: "charles@example.com"
   profile_name: "Charles"
+
+blocked_friend:
+  first_name: 'Blocked'
+  last_name: 'Friend'
+  email: 'blocked@example.com'
+  profile_name: 'youblockedme'

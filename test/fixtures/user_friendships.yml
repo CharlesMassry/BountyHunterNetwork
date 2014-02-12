@@ -7,5 +7,10 @@
 one:
   user: charlie
   friend: charles
+
+blocked_by_charlie:
+  user: charlie
+  friend: blocked_friend
+  state: blocked
 # column: value
 #
