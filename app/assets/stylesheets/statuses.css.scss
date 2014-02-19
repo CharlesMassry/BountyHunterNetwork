@@ -42,3 +42,6 @@ a:hover{
 .status-text {
 	padding-left: 1em
 };
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover {
+	background-color: #da4f49
+}

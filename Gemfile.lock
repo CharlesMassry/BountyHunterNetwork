@@ -36,6 +36,10 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -44,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    daemons (1.1.9)
     debug_inspector (0.0.2)
     devise (3.0.3)
       bcrypt-ruby (~> 3.0)
@@ -56,6 +61,7 @@ GEM
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -72,6 +78,7 @@ GEM
       rails (>= 3.2)
     json (1.8.1)
     libv8 (3.16.14.3)
+    log_buddy (0.7.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -79,6 +86,11 @@ GEM
     mime-types (1.25)
     multi_json (1.8.2)
     orm_adapter (0.5.0)
+    paperclip (3.5.4)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -136,6 +148,10 @@ GEM
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
+    thin (1.6.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     thor (0.18.1)
     tilt (1.4.1)
     treetop (1.4.15)
@@ -160,6 +176,8 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   js-routes
+  log_buddy
+  paperclip (~> 3.0)
   pg
   rails (= 3.2.6)
   rails_12factor
@@ -169,4 +187,5 @@ DEPENDENCIES
   sqlite3
   state_machine
   therubyracer
+  thin
   uglifier (>= 1.0.3)

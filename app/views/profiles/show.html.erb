@@ -1,7 +1,9 @@
-<div class="page-header">
-	<%= image_tag @user.gravatar_url %>
-	<h1><%= @user.full_name %></h1>
-</div>
+<%= page_header do %>
+  <h1>
+    <%= avatar_profile_link @user, {}, class: '' %>
+    <%= @user.full_name %>
+  </h1>
+<% end %>
 
 <% if signed_in? %>
 <div id="friend-status">

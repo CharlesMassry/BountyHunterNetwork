@@ -16,7 +16,7 @@ class UserNotifier < ActionMailer::Base
 		@user = user_friendship.user
 		@friend = user_friendship.friend
 
-		mail to: @friend.email,
-				 subject: "#{@user.first_name} has accepted your friend request on BountyHunterNetwork."
+		mail to: @user.email,
+				 subject: "#{@friend.first_name} has accepted your friend request on BountyHunterNetwork."
 	end
 end

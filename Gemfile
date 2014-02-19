@@ -16,10 +16,15 @@ group :test do
 	gem 'factory_girl_rails'
 end
 
+group :development do
+	gem 'thin'
+end
+
 group :development, :test do
 	gem 'sqlite3'
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'log_buddy'
 end
 
 group :production do
@@ -37,6 +42,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem "paperclip", "~> 3.0"
 
 gem 'jquery-rails'
 
