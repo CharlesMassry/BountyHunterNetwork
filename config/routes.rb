@@ -1,5 +1,4 @@
 BountyHunterNetwork::Application.routes.draw do
-  get "profiles/show"
 
   as :user do
     get '/register', to: 'devise/registrations#new', as: :register
@@ -26,6 +25,12 @@ BountyHunterNetwork::Application.routes.draw do
   get 'bounty_updates', to: 'statuses#index', as: :bounty_updates
   root to: 'statuses#index'
 
+  scope ":profile_name" do
+    resources :albums do
+      resources :pictures
+    end
+  end
+  
   get '/:id', to: 'profiles#show', as: 'profile'
 
   # The priority is based upon order of creation:

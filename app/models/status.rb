@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :user_id, :document_attributes
+  attr_accessible :content, :document_attributes
   belongs_to :user
   belongs_to :document
   accepts_nested_attributes_for :document

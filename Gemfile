@@ -44,6 +44,7 @@ group :assets do
 end
 
 gem "paperclip", "~> 3.0"
+gem "twitter-bootstrap-rails"
 
 gem 'jquery-rails'
 

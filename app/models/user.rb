@@ -6,17 +6,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # attr_accessible :title, :body
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name, :profile_name
+                  :first_name, :last_name, :profile_name, :avatar
   
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :profile_name, presence: true,
                            uniqueness: true,
                            format: {
-                             :with => /^[a-zA-Z0-9_-]+$/,
+                             with: /^[a-zA-Z0-9_-]+$/,
                              message: 'Must be formatted correctly.'
                            }
   
+  has_many :pictures
+  has_many :albums
   has_many :statuses
   has_many :user_friendships
   has_many :friends, through: :user_friendships,
@@ -41,6 +43,23 @@ class User < ActiveRecord::Base
                                       foreign_key: :user_id,
                                       conditions: { state: 'accepted' }
   has_many :accepted_friends, through: :accepted_user_friendships, source: :friend
+
+  has_attached_file :avatar, styles: {
+    large: "800x800>",
+    medium: "300x200>",
+    small: "260x180>",
+    thumb: "60x60#"
+  }
+
+  def self.get_gravatars
+    all.each do |user|
+      if !user.avatar?
+        user.avatar = URI.parse(user.gravatar_url)
+        user.save
+        print "."
+      end
+    end
+  end
   
   def full_name
     first_name + " " + last_name
@@ -48,6 +67,10 @@ class User < ActiveRecord::Base
 
   def to_param
     profile_name
+  end
+
+  def to_s
+    first_name
   end
 
   def gravatar_url

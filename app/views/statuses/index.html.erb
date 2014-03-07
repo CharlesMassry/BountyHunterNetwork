@@ -7,7 +7,7 @@
     <div class="status"> 
       <div class="row">
         <div class="col-md-1">
-          <%= link_to image_tag(status.user.gravatar_url), profile_path(status.user) %>
+          <%= avatar_profile_link status.user, {}, class: 'pull-left' %>
         </div>
         <div class="col-md-6">
           <div class="status-text">
