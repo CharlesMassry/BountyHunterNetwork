@@ -10,6 +10,8 @@ gem 'simple_form'
 gem 'state_machine'
 gem 'draper'
 gem 'js-routes'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :test do
 	gem 'shoulda'

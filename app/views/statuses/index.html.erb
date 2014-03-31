@@ -4,24 +4,26 @@
 <%= link_to "Update Status", new_status_path, class: "btn btn-danger" %>
 <% @statuses.reverse_each do |status| %>
   <% if can_display_status?(status) %>
-    <div class="status"> 
+    <div class="status media"> 
       <div class="row">
         <div class="col-md-1">
           <%= avatar_profile_link status.user, {}, class: 'pull-left' %>
         </div>
-        <div class="col-md-6">
-          <div class="status-text">
-            <strong><%= status.user.full_name %></strong>
-            <p><%= status.content %></p>
-            <p><%= status_document_link(status) %></p>
-            <div class="meta">
-              <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-              <% if signed_in? && current_user == status.user %>
-                <span class="admin">
-                  <%= link_to "Edit", edit_status_path(status) %> |
-                  <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
-                </span>
-              <% end %>
+        <div class="media-body">
+          <div class="col-md-6">
+            <div class="status-text">
+              <strong class="media-heading"><%= status.user.full_name %></strong>
+              <p><%= status.content %></p>
+              <p><%= status_document_link(status) %></p>
+              <div class="meta">
+                <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+                <% if signed_in? && current_user == status.user %>
+                  <span class="admin">
+                    <%= link_to "Edit", edit_status_path(status) %> |
+                    <%= link_to "Delete", status, method: :delete, data: { confirm: "Are you sure you want to delete this status?"} %>
+                  </span>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

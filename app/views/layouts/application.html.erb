@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -27,7 +27,11 @@
           </div>
             <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
               <ul class="nav navbar-nav">
-               <li><%= link_to "Bounty Updates", bounty_updates_path %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Activity Feed", activities_path %></li>
+                <% else %>
+                  <li><%= link_to "Bounty Updates", bounty_updates_path %></li>
+                <% end %>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
@@ -61,7 +65,7 @@
       <br>
       <footer class="footer">
         <br>
-          <p><a href="http://www.massindustries.org">&copy 2013 Mass Industries</a></p>
+          <p><a href="http://www.charliemassry.com">&copy 2014 Charlie Massry</a></p>
           <%= javascript_include_tag "application", "jquery.min", "jquery_ujs", "js-routes", "bootstrap.min", "statuses", "profiles", "user_friendships" %>
           <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

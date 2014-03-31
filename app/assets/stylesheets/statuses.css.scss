@@ -45,3 +45,13 @@ a:hover{
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
 	background-color: #da4f49
 }
+.breadcrumb>li+li:before {
+padding: 0 5px;
+color: #ccc;
+content: none;
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+background-color: #da4f49;
+border-color: #da4f49;
+}
