@@ -18,8 +18,9 @@ group :test do
 	gem 'factory_girl_rails'
 end
 
+gem 'thin'
+
 group :development, :test do
-	gem 'thin'
 	gem 'sqlite3'
 	gem 'better_errors'
 	gem 'binding_of_caller'
