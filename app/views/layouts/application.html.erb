@@ -28,7 +28,7 @@
             <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
               <ul class="nav navbar-nav">
                 <% if user_signed_in? %>
-                  <li><%= link_to "Activity Feed", activities_path %></li>
+                  <li id="activity-feed"><%= link_to "Activity Feed", activities_path %></li>
                 <% else %>
                   <li><%= link_to "Bounty Updates", bounty_updates_path %></li>
                 <% end %>
@@ -66,7 +66,7 @@
       <footer class="footer">
         <br>
           <p><a href="http://www.charliemassry.com">&copy 2014 Charlie Massry</a></p>
-          <%= javascript_include_tag "application", "jquery.min", "jquery_ujs", "js-routes", "bootstrap.min", "statuses", "profiles", "user_friendships" %>
+          <%= javascript_include_tag "application", "jquery.min", "jquery_ujs", "js-routes", "bootstrap.min", "handlebars-v1.3.0", "statuses", "profiles", "user_friendships" %>
           <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -75,6 +75,16 @@
 
             ga('create', 'UA-44853592-1', 'bountyhunternetwork.com');
             ga('send', 'pageview');
+          </script>
+          <script id="activities-template" type="text/x-handlebars-template">
+            <a class="dropdown-toggle" href="#">Activity Feed ({{count}})</a>
+            <ul class="dropdown-menu">
+              {{#each activities}}
+                {{activityLink}}
+              {{/each}}
+              <li class="divider"></li>
+              <li><a href="{{activityFeedLink}}">Activity Feed</a></li>
+            </ul>
           </script>
       </footer>
     </div>
